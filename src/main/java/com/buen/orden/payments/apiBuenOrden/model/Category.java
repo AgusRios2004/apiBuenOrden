@@ -1,13 +1,12 @@
 package com.buen.orden.payments.apiBuenOrden.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -20,5 +19,13 @@ public class Category {
     private Long id;
     private String name;
     private int maxAge;
-
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TeacherCategory> teacherCategories;
+    @ManyToMany
+    @JoinTable(
+            name = "category_disciplines",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "discipline_id")
+    )
+    private List<Discipline> disciplines;
 }

@@ -1,9 +1,6 @@
 package com.buen.orden.payments.apiBuenOrden.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -25,4 +23,6 @@ public class Player {
     @Name("last_name")
     private String lastName;
     private LocalDate birthDate;
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MonthlyPayment> payments;
 }

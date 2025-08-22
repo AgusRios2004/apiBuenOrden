@@ -1,26 +1,26 @@
 package com.buen.orden.payments.apiBuenOrden.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Discipline {
+public class TeacherCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    @Name("max_age")
-    private int maxAge;
-    @ManyToMany(mappedBy = "disciplines")
-    private List<Category> categories;
+    @ManyToOne
+    @JoinColumn(name = "professor_id", nullable = false)
+    private Professor professor;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
