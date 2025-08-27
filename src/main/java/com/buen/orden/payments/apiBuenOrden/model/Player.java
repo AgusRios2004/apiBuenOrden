@@ -23,6 +23,9 @@ public class Player {
     @Name("last_name")
     private String lastName;
     private LocalDate birthDate;
+    @ManyToOne
+    @JoinColumn(name = "state_id")
+    private State state;
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MonthlyPayment> payments;
 }
