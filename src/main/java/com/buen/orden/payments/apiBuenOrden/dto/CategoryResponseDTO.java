@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.List;
+
 @Getter
 @Setter
-public class CategoryDTO {
-
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoryResponseDTO {
     private Long id;
     private String name;
-
+    private List<DisciplineDTO> disciplines; // Objetos completos (id + name)
 }
