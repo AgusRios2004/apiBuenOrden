@@ -1,7 +1,7 @@
 package com.buen.orden.payments.apiBuenOrden.service;
 
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryRequestDTO;
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryResponseDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.request.CategoryRequestDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.response.CategoryResponseDTO;
 import com.buen.orden.payments.apiBuenOrden.mappers.CategoryMapper;
 import com.buen.orden.payments.apiBuenOrden.model.Category;
 import com.buen.orden.payments.apiBuenOrden.repository.CategoryRepository;

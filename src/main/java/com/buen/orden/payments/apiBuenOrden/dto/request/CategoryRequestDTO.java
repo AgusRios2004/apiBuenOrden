@@ -1,4 +1,4 @@
-package com.buen.orden.payments.apiBuenOrden.dto;
+package com.buen.orden.payments.apiBuenOrden.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

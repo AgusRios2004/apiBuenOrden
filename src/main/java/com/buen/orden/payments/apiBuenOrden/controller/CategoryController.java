@@ -1,8 +1,8 @@
 package com.buen.orden.payments.apiBuenOrden.controller;
 
 import com.buen.orden.payments.apiBuenOrden.api.ApiResponse;
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryRequestDTO;
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryResponseDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.request.CategoryRequestDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.response.CategoryResponseDTO;
 import com.buen.orden.payments.apiBuenOrden.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

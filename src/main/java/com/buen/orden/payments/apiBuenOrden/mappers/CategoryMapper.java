@@ -1,10 +1,9 @@
 package com.buen.orden.payments.apiBuenOrden.mappers;
 
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryRequestDTO;
-import com.buen.orden.payments.apiBuenOrden.dto.CategoryResponseDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.request.CategoryRequestDTO;
+import com.buen.orden.payments.apiBuenOrden.dto.response.CategoryResponseDTO;
 import com.buen.orden.payments.apiBuenOrden.dto.DisciplineDTO;
 import com.buen.orden.payments.apiBuenOrden.model.Category;
-import com.buen.orden.payments.apiBuenOrden.model.Discipline;
 
 import java.util.stream.Collectors;
 

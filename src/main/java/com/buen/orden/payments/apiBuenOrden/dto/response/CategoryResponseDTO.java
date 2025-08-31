@@ -1,5 +1,6 @@
-package com.buen.orden.payments.apiBuenOrden.dto;
+package com.buen.orden.payments.apiBuenOrden.dto.response;
 
+import com.buen.orden.payments.apiBuenOrden.dto.DisciplineDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
