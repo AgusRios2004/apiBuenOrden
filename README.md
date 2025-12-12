@@ -1,81 +1,81 @@
-# API Buen Orden - Sistema de Gestión de Clubes
+# API - Club Management System
 
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-5.0-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
 
-> **API RESTful** diseñada para la administración integral de instituciones deportivas, gestionando el ciclo de vida de los socios, tesorería y categorización deportiva.
+> **RESTful API** designed for the comprehensive administration of sports institutions, managing member lifecycles, treasury, and sports categorization.
 
-## 📖 Descripción del Proyecto
+## 📖 Project Description
 
-Este backend fue desarrollado para solucionar la problemática de gestión de pagos y seguimiento de jugadores en el **Club Buen Orden F.C.** Provee una arquitectura robusta para manejar la lógica de negocio administrativa, permitiendo un control histórico de categorías y un registro detallado de cuotas mensuales.
+This backend solution was developed to address payment management and player tracking challenges for **Club Buen Orden F.C.** It provides a robust architecture to handle administrative business logic, enabling historical control of categories and detailed recording of monthly fees.
 
-## ✨ Funcionalidades Principales
+## ✨ Key Features
 
-* **Gestión de Socios/Jugadores:** ABM (Alta, Baja, Modificación) completo de perfiles.
-* **Control de Tesorería:** Registro de pagos mensuales, control de deudas y generación de estados de cuenta.
-* **Historial Deportivo:** Seguimiento de la evolución de los jugadores a través de diferentes categorías y disciplinas.
-* **Arquitectura Escalable:** Diseño modular basado en capas (Controller, Service, Repository) listo para futuras integraciones frontend.
+* **Member/Player Management:** Complete CRUD (Create, Read, Update, Delete) for profiles.
+* **Treasury Control:** Registration of monthly payments, debt tracking, and account statement generation.
+* **Sports History:** Tracking of player evolution across different categories and disciplines.
+* **Scalable Architecture:** Modular design based on layers (Controller, Service, Repository), ready for future frontend integrations.
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-* **Lenguaje:** Java 17
+* **Language:** Java 17
 * **Framework:** Spring Boot 3+
-* **Persistencia:** Spring Data JPA & Hibernate
-* **Base de Datos:** MySQL / H2 (Entornos de prueba)
+* **Persistence:** Spring Data JPA & Hibernate
+* **Database:** MySQL / H2 (Test environments)
 * **Build Tool:** Maven
 
-## 🚀 Instalación y Ejecución
+## 🚀 Installation & Execution
 
-### Requisitos Previos
-* Java JDK 17 o superior.
-* Maven (Opcional, el proyecto incluye Wrapper).
-* MySQL Server (Opcional para producción).
+### Prerequisites
+* Java JDK 17 or higher.
+* Maven (Optional, Wrapper included).
+* MySQL Server (Optional for production).
 
-### Pasos
+### Steps
 
-1.  **Clonar el repositorio:**
+1.  **Clone the repository:**
     ```bash
     git clone [https://github.com/AgusRios2004/apiBuenOrden.git](https://github.com/AgusRios2004/apiBuenOrden.git)
     cd api-buen-orden
     ```
 
-2.  **Configurar Base de Datos:**
-    Edita el archivo `src/main/resources/application.properties`.
+2.  **Configure Database:**
+    Edit `src/main/resources/application.properties`.
     ```properties
     spring.datasource.url=jdbc:mysql://localhost:3306/buen_orden_db
     spring.datasource.username=root
-    spring.datasource.password=tu_password
+    spring.datasource.password=your_password
     spring.jpa.hibernate.ddl-auto=update
     ```
 
-3.  **Ejecutar la aplicación:**
+3.  **Run the application:**
     ```bash
     ./mvnw spring-boot:run
     ```
 
-La API iniciará en: `http://localhost:8080`
+The API will start at: `http://localhost:8080`
 
 ---
 
-## 🔌 Documentación de Endpoints
+## 🔌 Endpoints Documentation
 
-| Módulo | Método | Endpoint | Descripción |
+| Module | Method | Endpoint | Description |
 | :--- | :---: | :--- | :--- |
-| **Jugadores** | `GET` | `/players` | Listar todos los jugadores activos. |
-| | `POST` | `/players` | Registrar un nuevo jugador. |
-| **Pagos** | `POST` | `/payments` | Registrar el pago de una cuota. |
-| | `GET` | `/payments/player/{id}` | Ver historial de pagos de un jugador. |
-| **Categorías** | `PUT` | `/categories/{id}` | Actualizar información de categoría. |
+| **Players** | `GET` | `/players` | List all active players. |
+| | `POST` | `/players` | Register a new player. |
+| **Payments** | `POST` | `/payments` | Register a fee payment. |
+| | `GET` | `/payments/player/{id}` | View player payment history. |
+| **Categories** | `PUT` | `/categories/{id}` | Update category information. |
 
-> **Nota:** Se recomienda utilizar **Postman** o **Insomnia** para probar las peticiones.
+> **Note:** Using **Postman** or **Insomnia** is recommended for testing requests.
 
-## 👤 Autor
+## 👤 Author
 
 **Agustín Rios** - *Backend Developer*
-* [LinkedIn](https://www.linkedin.com/in/agustin-rios)
+* [LinkedIn](https://www.linkedin.com/in/agustin-rios-dev)
 * [GitHub Profile](https://github.com/AgusRios2004)
 
 ---
-*Desarrollado con ❤️ para la gestión deportiva eficiente.*
+*Developed with ❤️ for efficient sports management.*
