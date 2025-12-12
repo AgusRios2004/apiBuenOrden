@@ -1,103 +1,81 @@
-# API Buen Orden: Sistema de Gestión de Pagos
+# API Buen Orden - Sistema de Gestión de Clubes
 
-¡Bienvenido/a al repositorio de la **API Buen Orden**! Este proyecto es una API RESTful diseñada para gestionar los pagos, jugadores, disciplinas y categorías dentro de una organización, como un club deportivo o una academia.
+![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-5.0-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
 
-## 🚀 Tecnologías Principales
+> **API RESTful** diseñada para la administración integral de instituciones deportivas, gestionando el ciclo de vida de los socios, tesorería y categorización deportiva.
 
-Esta API está construida principalmente con:
+## 📖 Descripción del Proyecto
 
-* **Java ☕**
-* **Spring Boot**: Framework principal para el desarrollo de la aplicación.
-* **Maven**: Herramienta de gestión y construcción del proyecto.
-* **Spring Data JPA**: Para la capa de acceso a datos y ORM.
+Este backend fue desarrollado para solucionar la problemática de gestión de pagos y seguimiento de jugadores en el **Club Buen Orden F.C.** Provee una arquitectura robusta para manejar la lógica de negocio administrativa, permitiendo un control histórico de categorías y un registro detallado de cuotas mensuales.
 
-## 📁 Estructura del Proyecto
+## ✨ Funcionalidades Principales
 
-El proyecto sigue una estructura estándar de **Maven** y el patrón **Model-View-Controller (MVC)**, típico de las aplicaciones Spring Boot
-## 🛠️ Configuración y Ejecución
+* **Gestión de Socios/Jugadores:** ABM (Alta, Baja, Modificación) completo de perfiles.
+* **Control de Tesorería:** Registro de pagos mensuales, control de deudas y generación de estados de cuenta.
+* **Historial Deportivo:** Seguimiento de la evolución de los jugadores a través de diferentes categorías y disciplinas.
+* **Arquitectura Escalable:** Diseño modular basado en capas (Controller, Service, Repository) listo para futuras integraciones frontend.
+
+## 🛠️ Stack Tecnológico
+
+* **Lenguaje:** Java 17
+* **Framework:** Spring Boot 3+
+* **Persistencia:** Spring Data JPA & Hibernate
+* **Base de Datos:** MySQL / H2 (Entornos de prueba)
+* **Build Tool:** Maven
+
+## 🚀 Instalación y Ejecución
 
 ### Requisitos Previos
+* Java JDK 17 o superior.
+* Maven (Opcional, el proyecto incluye Wrapper).
+* MySQL Server (Opcional para producción).
 
-Asegúrate de tener instalado:
+### Pasos
 
-* **Java Development Kit (JDK) 17+** (o la versión especificada en `pom.xml`).
-* **Maven** (opcional, se incluye `mvnw`).
-
-### Configuración del Entorno
-
-1.  **Clona el repositorio:**
+1.  **Clonar el repositorio:**
     ```bash
-    git clone [URL_DE_TU_REPOSITORIO]
+    git clone [https://github.com/AgusRios2004/apiBuenOrden.git](https://github.com/AgusRios2004/apiBuenOrden.git)
     cd api-buen-orden
     ```
-2.  **Configuración de la Base de Datos:**
-    Edita el archivo `src/main/resources/application.properties` con tus credenciales y detalles de conexión a la base de datos (por ejemplo, PostgreSQL, MySQL, H2):
 
+2.  **Configurar Base de Datos:**
+    Edita el archivo `src/main/resources/application.properties`.
     ```properties
-    # Ejemplo de configuración para H2 (base de datos en memoria para desarrollo)
-    # spring.datasource.url=jdbc:h2:mem:testdb
-    # spring.datasource.driverClassName=org.h2.Driver
-    # spring.datasource.username=sa
-    # spring.datasource.password=
-    
-    # Ejemplo de configuración para PostgreSQL (si es el caso)
-    # spring.datasource.url=jdbc:postgresql://localhost:5432/mibasedatos
-    # spring.datasource.username=user
-    # spring.datasource.password=password
-    
+    spring.datasource.url=jdbc:mysql://localhost:3306/buen_orden_db
+    spring.datasource.username=root
+    spring.datasource.password=tu_password
     spring.jpa.hibernate.ddl-auto=update
-    # ... otras configuraciones de Spring Boot
     ```
 
-### Ejecución de la Aplicación
-
-Puedes iniciar la aplicación usando el **Maven Wrapper** incluido:
-
-1.  **Compilar y empaquetar:**
-    ```bash
-    ./mvnw clean install
-    ```
-    *(Usa `mvnw.cmd` en Windows)*
-
-2.  **Ejecutar la aplicación:**
+3.  **Ejecutar la aplicación:**
     ```bash
     ./mvnw spring-boot:run
     ```
-    Alternativamente, puedes ejecutar el archivo JAR generado en el directorio `target/`:
-    ```bash
-    java -jar target/[nombre-del-archivo].jar
-    ```
 
-La API estará disponible en `http://localhost:[PUERTO]` (el puerto por defecto es **8080** a menos que se configure en `application.properties`).
+La API iniciará en: `http://localhost:8080`
 
 ---
 
-## 🌐 Endpoints Principales (Ejemplos)
+## 🔌 Documentación de Endpoints
 
-La API proporciona acceso a la gestión de las siguientes entidades:
+| Módulo | Método | Endpoint | Descripción |
+| :--- | :---: | :--- | :--- |
+| **Jugadores** | `GET` | `/players` | Listar todos los jugadores activos. |
+| | `POST` | `/players` | Registrar un nuevo jugador. |
+| **Pagos** | `POST` | `/payments` | Registrar el pago de una cuota. |
+| | `GET` | `/payments/player/{id}` | Ver historial de pagos de un jugador. |
+| **Categorías** | `PUT` | `/categories/{id}` | Actualizar información de categoría. |
 
-| Entidad | Controlador Asociado | Endpoints Típicos |
-| :--- | :--- | :--- |
-| **Jugadores** | `PlayerController` | `/players`, `/players/{id}` |
-| **Pagos Mensuales** | `MonthlyPaymentController` | `/payments`, `/payments/{id}` |
-| **Categorías** | `CategoryController` | `/categories`, `/categories/{id}` |
-| **Disciplinas** | `DisciplineController` | `/disciplines`, `/disciplines/{id}` |
-| **Períodos** | `PeriodController` | `/periods`, `/periods/{id}` |
-| **Historial de Categoría de Jugador** | `PlayerCategoryHistoryController` | `/player-category-history` |
-| **Estados** | `StateController` | `/states`, `/states/{id}` |
+> **Nota:** Se recomienda utilizar **Postman** o **Insomnia** para probar las peticiones.
 
-### Ejemplo: Obtener todos los Jugadores
+## 👤 Autor
 
-**GET** `/players`
-**Cuerpo de la Respuesta (Ejemplo):**
-```json
-{
-    "status": "OK",
-    "data": [
-        {
-            "id": 1,
-            "name": "Lionel",
-            "lastName": "Messi",
-        }
-    ]
-}
+**Agustín Rios** - *Backend Developer*
+* [LinkedIn](https://www.linkedin.com/in/agustin-rios)
+* [GitHub Profile](https://github.com/AgusRios2004)
+
+---
+*Desarrollado con ❤️ para la gestión deportiva eficiente.*
